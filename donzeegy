@@ -1,0 +1,72 @@
+```
+// Import necessary libraries and modules
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+// Define the main activity class
+
+public class PollActivity extends AppCompatActivity {
+
+    // Declare variables for UI elements
+
+    private EditText questionEditText;
+    private EditText option1EditText;
+    private EditText option2EditText;
+    private Button createPollButton;
+
+    // Define the onCreate() method to initialize the activity
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_poll);
+
+        // Initialize UI elements
+
+        questionEditText = findViewById(R.id.questionEditText);
+        option1EditText = findViewById(R.id.option1EditText);
+        option2EditText = findViewById(R.id.option2EditText);
+        createPollButton = findViewById(R.id.createPollButton);
+
+        // Set click listener for the create poll button
+
+        createPollButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createPoll();
+            }
+        });
+    }
+
+    // Define the createPoll() method
+
+    private void createPoll() {
+        // Get the user input from UI elements
+
+        String question = questionEditText.getText().toString().trim();
+        String option1 = option1EditText.getText().toString().trim();
+        String option2 = option2EditText.getText().toString().trim();
+
+        // Validate the user input
+
+        if (question.isEmpty() || option1.isEmpty() || option2.isEmpty()) {
+            Toast.makeText(this "Please enter all fields Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // TODO: Save the poll details to a database or file
+
+        // Display success message to the user
+
+        Toast.makeText(this "Poll created successfully Toast.LENGTH_SHORT).show();
+
+        // TODO: Redirect the user to the poll page or home screen
+    }
+}
+```
